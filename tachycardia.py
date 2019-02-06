@@ -8,3 +8,13 @@ def simplify_string(s):
     from string import punctuation
     simplified_string = s.replace(' ', '').strip(punctuation).lower()
     return simplified_string
+
+
+def is_tachycardic(s):
+    """ Check if single word string contains 'tachycardic'
+
+    :param s: single word string
+    :return: boolean
+    """
+    simp_s = simplify_string(s)
+    return simp_s == "tachycardic"
