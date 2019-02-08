@@ -17,7 +17,8 @@ def is_tachycardic(s):
     :return: boolean
     """
     simp_s = simplify_string(s)
-    return simp_s == "tachycardic"
+    ld = levenshtein_distance(simp_s, "tachycardic")
+    return ld <= 2
 
 
 def levenshtein_distance(s, t, costs=(1, 1, 1)):
@@ -59,7 +60,5 @@ def levenshtein_distance(s, t, costs=(1, 1, 1)):
             dist[row][col] = min(dist[row-1][col] + deletes,
                                  dist[row][col-1] + inserts,
                                  dist[row-1][col-1] + cost)  # substitution
-    for r in range(rows):
-        print(dist[r])
 
     return dist[row][col]
